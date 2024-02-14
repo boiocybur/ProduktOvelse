@@ -1,13 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thumeleaf.org" lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Products List</title>
 </head>
 <body>
-<h2>Products List</h2>
-<ul>
-{{@produkts }}
-<li>{{product.id}} - {{product.name}} - ${{product.price}}</li>
-{+@}}
+<ul th:each="product : ${produkts }">
+<li>th:text="{{product.id}} - {{product.name}} - $ {{product.price}}"></li>
 </ul>
 </body>
 </html>

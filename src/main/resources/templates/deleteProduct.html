@@ -1,12 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thumeleaf.org" lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Delete Product</title>
 </head>
 <body>
-<h2>Delete Product</h2>
-<form method=\"post\" action=\"product/products/{id}/delete\">
-<input type=\"text\" name=\"id\" placeholder=\"Id\"/>
-<input type=\"submit\" value=\"Delete\"/>
-</form>
+<form action="/product/products/{id}/delete" method="post" th:object="${product}">
+  <input name="id" type="text" th:value="${product.id}" placeholder="Id"/>
+  <button type="submit">Delete product</button>
+  </form>
 </body>
 </html>

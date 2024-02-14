@@ -1,14 +1,25 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thumeleaf.org" lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Create Product</title>
 </head>
 <body>
-<h2>Create Product</h2>
-<form method=\"post\" action=\"product/products/create\">
-<input type=\"text\" name=\"id\" placeholder=\"Id\"/>
-<input type=\"text\" name=\"name\" placeholder=\"Name\"/>
-<input type=\"number\" name=\"price\" placeholder=\"Price\"/>
-<input type=\"submit\" value=\"Create\"/>
+<form action="/product/products/create" method="post" th:object="${product}">
+  <!--hidden form field to store id of the object to be created-->
+  <input name="id" type="hidden" th:value="${product.id}">
+  <p>
+    <label>Navn:</label>
+    <input name="name" type="text" th:value="${product.name}"/>
+  </p>
+
+  <p>
+    <label>Pris:</label>
+    <input name="price" type="number" th:value="${product.price}"/>
+  </p>
+
+  <p><button type="submit">Create product</button>
+  </p>
 </form>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/products/update" method="post" th:object="${product}">
+    <!--hidden form field til at gemme id på objekt der redigeres -->
+    <input name="id" type="hidden" th:value="${product.id}">
+    <p>
+        <label>Navn:</label>
+        <input name="name" type="text" th:value="${product.name}"/>
+    </p>
+
+    <p>
+        <label>Pris:</label>
+        <input name="price" type="number" th:value="${product.price}"/>
+    </p>
+
+    <p><button type="submit">Opdatér produkt</button>
+    </p>
+</form>
+
+</body>
+</html>
